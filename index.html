@@ -85,6 +85,26 @@
                 <li>
                     <P>Here we are using the mean enviromental values to calculate the power for each solar panel using the formula: Power = Area * Efficiency * (1 + temperature coefficient * (temperature - 25)) * GHI * (cos(solar zenith angle in degrees) + surface albedo)</P>
                 </li>
+                <div style="height: 80px"></div>
+                <li>
+                    <p>Here we are multiplying the power of each solar panel (energy/second) by the total active time of each solar panel type to get energy produced for each month for each solar panel type.</p>
+                </li>
+                <div style="height: 80px"></div>
+                <li>
+                    <p>Here we are using the amount of each solar panel in the site (obtained by dividing the area of the site by the area of each solar panel type) to get the total nergy produced for each month if the whole site was covered with solar panels.</p>
+                </li>
+                <div style="height: 80px"></div>
+                <li>
+                    <p>Here we are calculating the cost of the energy produced in each month for each solar panel type</p>
+                </li>
+                <div style="height: 80px"></div>
+                <li>
+                    <p>Here we are accounting for the purching cost for each solar panel type and adding it to the cost in the first month.</p>
+                </li>
+                <div style="height: 80px"></div>
+                <li>
+                    <p>Finally, here we are comparing each solar panel type by the total cost per year and the total cost in the first year. In upcoming years, we wont account for the purchasing cost of the solar panels. Our deciision on which solar panel is best is only dependent on the data in the first year.</p>
+                </li>
             </ul>
         </div>
     </div>
