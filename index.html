@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Panel Selection</title>
+    <style>
+        li{
+            font-size: medium;
+        }
+        img{
+            width: 100%;
+            
+        }
+        p{
+            text-align: left;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+    <div >
+        <h1 style = "text-align: center;">Solar Panel Selection</h1>
+        <h2 style = "text-align: center;">Code Explanation for Site 1 as an example</h2>
+        <h3 style = "text-align: left;">
+            <ol>
+                <li>Omar Ahmed (23-101180) <p style = "text-align: right;">Data Cleaning</p></li>
+                <li>Kareem Shaaban (23-101170)<p style = "text-align: right;">Data Analysis</p></li>
+                <li>Omar Dardir (23-101265)<p style = "text-align: right;">Monthly Total Energy Production</p></li>
+            </ol>
+        </h3>
+        <hr />
+    </div>
+    <div style="display: flex; width: 100%;">
+        <div style="width: 40%;">
+            <img src="matlab project_page-0001.jpg">
+            <img src="matlab project_page-0002.jpg">
+            <img src="matlab project_page-0003.jpg">
+            <img src="matlab project_page-0004.jpg">
+            <img src="matlab project_page-0005.jpg">
+            <img src="matlab project_page-0006.jpg">
+        </div>
+        <div style="width: 60%;">
+            <ul>
+                <li><p>"Here we combined the not, "~", logical operation and the function "ismissing" to create a new table excluding any rows with missing values" - Omar Ahmed</p></li>
+                <hr />
+                <li>
+                    <p>"To create new tables for each solar panel type in which enviromental factors can be utilized by the solar panels, we created structs including ranges for each aspect in which a solar panel can be determined to work or not, such as temperature, surface albedo...etc"</p>
+                </li>
+                <li>
+                    <p>"Then we created a function that takes a struct (containing ranges) and a table as parameters. It then returns a new table containing the filtered data. As it would be cumbersome to repeat the process with all three structs for all 3 solar panels."</p>
+                </li>
+                <div style="height: 630px">
+                    
+                </div>
+                <li><p>Here, we are calling the function to create a table for each solar panel</p></li>
+                <p style="text-align: right;">- Kareem Shaaban</p>
+                <hr />
+                <li><p>Here we are initializing a table array for when we seperate the data based on the month column into 12 different tables for each solar panel type and also the unfiltered data (the purpose wil be understood later)</p></li>
+                <div style ="height: 10px"></div>
+                <li>
+                    <p>Here we used a for loop to seperate the table based on the value of the months (1-12) in the month column. doing this we will create 12 different tables each one containing a unique month value for each solar panel type and the unfiltered data.</p>
+                </li>
+                <div style = "height: 200px"></div>
+                <li>
+                    <p>Here we are getting the percentage of time a solar panel will work in a month. we do that by dividing each solar panel's table height (number of samples in which a solar panel can work) by the height of the unfiltered table (number of total samples). we do that for each month, as enviromental factors change by the month and arent consistent.</p>
+                </li>
+                <div style ="height: 10px"></div>
+                <li>
+                    <p>Here we created an array of total seconds in each month so we can multiply it by the percentage of time each solar panel would work each month to get active seconds for each solar panel in each month.</p>
+                </li>
+                <div style="height: 200px"></div>
+                <li>
+                    <p>Here we defined constants for each solar panel that are needed for calculating the energy production for each month</p>
+                </li>
+                <div style="height: 200px"></div>
+                <li>
+                    <p>Here we are creating an array of tables for each solar panel except this time, the columns are constant and the value under them is the mean of the values in each month. these mean values will be used in the equations to determine energy production. we used the mean values in the filtered tables since these tables contain the values in which the solar panel will be active, meaning the other values wont be needed.</p>
+                </li>
+                <p>-Omar Dardir</p>
+                
+                <hr />
+                <li>
+                    <p>Here we are extracting the needed values for the equation which are the temerature, the GHI, the solar zenith angle and the surface albedo for each month and for each solar panel type.</p>
+                </li>
+                <div style="height: 200px"></div>
+                <div style="height: 207px"></div>
+                <li>
+                    <P>Here we are using the mean enviromental values to calculate the power for each solar panel using the formula: Power = Area * Efficiency * (1 + temperature coefficient * (temperature - 25)) * GHI * (cos(solar zenith angle in degrees) + surface albedo)</P>
+                </li>
+                <p>-Kareem Shaaban</p>
+                <hr />
+                <div style="height: 10px"></div>
+                <li>
+                    <p>Here we are multiplying the power of each solar panel (energy/second) by the total active time of each solar panel type to get energy produced for each month for each solar panel type.</p>
+                </li>
+                <div style="height: 80px"></div>
+                <li>
+                    <p>Here we are using the amount of each solar panel in the site (obtained by dividing the area of the site by the area of each solar panel type) to get the total nergy produced for each month if the whole site was covered with solar panels.</p>
+                </li>
+                <div style="height: 160px"></div>
+                <li>
+                    <p>Here we are calculating the cost of the energy produced in each month for each solar panel type</p>
+                </li>
+                <div style="height: 100px"></div>
+                <li>
+                    <p>Here we are accounting for the purching cost for each solar panel type and adding it to the cost in the first month.</p>
+                </li>
+                <div style="height: 160px"></div>
+                <li>
+                    <p>Finally, here we are comparing each solar panel type by the total cost per year and the total cost in the first year. In upcoming years, we wont account for the purchasing cost of the solar panels. Our deciision on which solar panel is best is only dependent on the data in the first year.</p>
+                </li>
+                <p>-Omar Dardir</p>
+            </ul>
+        </div>
+    </div>
+    <hr />
+    <h2>Here are the code files for each file for download:</h2>
+    <ol>
+        <li>
+            <a href = "/site_1.m">site 1 download</a>
+            
+        </li>
+        <li>
+            <a href = "/site_2.m">site 2 download</a>
+            
+        </li>
+        <li>
+            <a href = "/site_3.m">site 3 download</a>
+            
+        </li>
+        <li>
+            <a href = "/site4.m">site 4 download</a>
+            
+        </li>
+        <li>
+            <a href = "/site_5.m">site 5 download</a>
+            
+        </li>
+    </ol>
+</body>
+</html>
